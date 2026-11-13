@@ -181,9 +181,9 @@ def bootstrap_auc_ci(y_test, proba, n_boot: int = 1000,
 # --- Decisiones congeladas (resultado del cuaderno 04; justificadas en reports/problema_ml.md) ---
 MODEL_NAME = "titanic_model_v1"
 FINAL_ESTIMATOR = "hgb"                 # nombre en get_candidates()
-FINAL_PARAMS = {                        # mejores hiperparámetros del Paso 57
-    "model__learning_rate": 0.05,
-    "model__max_depth": 3,
+FINAL_PARAMS = {                        # mejores hiperparámetros del Paso 57 (GridSearch del cuaderno 04)
+    "model__learning_rate": 0.1,
+    "model__max_depth": 4,
     "model__max_iter": 200,
     "model__l2_regularization": 1.0,
 }
