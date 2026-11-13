@@ -4,6 +4,11 @@ Proyecto completo del taller (ver `docs/GUIA.md`): **EDA del Titanic** + **model
 para predecir supervivencia, construido como un pipeline reproducible con arquitectura
 **medallion** (Bronze → Silver → Gold) y guardado auditable del modelo.
 
+## Datos
+Nombre: Andres Esteban Vasquez Peña
+
+Materia: Linea de enfasis 3
+
 ## Requisitos
 
 - Python ≥ 3.11 (se recomienda 3.12), `make`, `git`
