@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import json
 import platform
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import joblib
@@ -158,7 +158,7 @@ def evaluate_on_test(pipeline, X_test, y_test, threshold: float = 0.5) -> dict:
         "accuracy": float(accuracy_score(y_test, pred)),
         "f1": float(f1_score(y_test, pred)),
         "roc_auc": float(roc_auc_score(y_test, proba)),
-        "n_test": int(len(y_test)),
+        "n_test": len(y_test),
         "threshold": float(threshold),
     }
 
@@ -210,7 +210,7 @@ def save_model(pipeline: Pipeline, metadata: dict, name: str = MODEL_NAME,
     meta = {
         **metadata,
         "name": name,
-        "saved_at": datetime.now(timezone.utc).isoformat(),
+        "saved_at": datetime.now(UTC).isoformat(),
         "python_version": platform.python_version(),
         "sklearn_version": sklearn.__version__,
         "pandas_version": pd.__version__,
@@ -269,8 +269,8 @@ def run(in_dir: Path | None = None, models_dir: Path = MODELS) -> Path:
         "target": TARGET,
         "threshold": THRESHOLD,
         "random_state": settings.random_state,
-        "n_train_final": int(len(X)),
-        "n_train_eval": int(len(X_tr)),
+        "n_train_final": len(X),
+        "n_train_eval": len(X_tr),
         "data_sha256": sha256_of(silver_path),
         "metrics_test": metrics,
     }

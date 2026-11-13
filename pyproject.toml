@@ -30,4 +30,12 @@ testpaths = ["tests"]
 
 [tool.ruff]
 line-length = 100
+# Notebooks: se validan ejecutándolos, no con lint estático (ruff analiza
+# celda por celda y da falsos positivos de imports entre celdas).
+exclude = ["notebooks"]
+
+[tool.ruff.lint]
+# N999: los módulos 00_/01_/03_/05_ son el diseño de la guía (orden de etapas;
+# se importan con importlib).
+ignore = ["N999"]
 
